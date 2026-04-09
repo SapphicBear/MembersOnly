@@ -1,7 +1,5 @@
-require("@dotenvx/dotenvx").config();
+import "@dotenvx/dotenvx/config";
 
-const { Pool } = require("pg");
-
-module.exports = new Pool({
+export default new Pool({
     connectionString: process.env.DATABASE_URL,
 });
