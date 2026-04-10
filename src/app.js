@@ -4,6 +4,7 @@ import { fileURLToPath } from "url";
 import "@dotenvx/dotenvx/config";
 import { indexRouter } from "./routes/indexRoute.js";
 import { signInRouter } from "./routes/signInRoute.js";
+import { signUpRouter } from "./routes/signUpRoute.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -20,6 +21,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/", indexRouter);
 app.use("/sign-in", signInRouter);
+app.use("/sign-up", signUpRouter);
 
 app.use((error, req, res, next) => {
     console.error(error);
