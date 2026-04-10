@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("./partials/head.ejs", { title: title }) %>
+</head>
+<body>
+
+    <main aria-labelledby="main">
+        <h2 id="main">Sign in</h2>
+        
+        <% if (locals.errors) { %>
+            <ul class="error-list">        
+                <% errors.map((error) => { %>
+                    <li class="error"><%= error.message %></li>
+                <% }); %>
+            </ul>
+        <%}%>
+
+        <form action="/sign-up" method="post">
+            <div class="form-row">
+
+            </div>
+            <div class="form-row">
+                
+            </div>
+            <div class="form-row">
+                
+            </div>
+            <div class="form-row">
+                
+            </div>
+        </form>
+    </main>
+
+    <footer>
+        <%- include("./partials/footer.ejs", { links: links }); %>
+    </footer>
+</body>
+</html>
