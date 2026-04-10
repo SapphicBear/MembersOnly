@@ -1,4 +1,4 @@
-import links from "../data/links";
+import { links } from "../data/links.js";
 
 async function indexGet(req, res) {
     const header = "Secret Message";
