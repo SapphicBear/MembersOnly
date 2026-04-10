@@ -19,5 +19,8 @@ const signIn = [
         .escape()
         .withMessage(errors.length.password),
 ];
+const signUp = [
 
-export { signIn };
+];
+
+export { signIn, signUp };
