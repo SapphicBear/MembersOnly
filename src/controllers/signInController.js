@@ -1,5 +1,5 @@
 import { links } from "../data/links.js";
-import { signInValidation } from "./input_validation/signInValidation.js";
+import { signIn } from "./input_validation/inputValidation.js";
 import { matchedData, validationResult } from "express-validator";
 
 async function getSignIn(req, res) {
@@ -12,7 +12,7 @@ async function getSignIn(req, res) {
 }
 
 const attemptSignIn = [
-    signInValidation,
+    signIn,
 
     async (req, res, next) => {
         const title = "Sign in to your account";
@@ -27,6 +27,6 @@ const attemptSignIn = [
             const data = matchedData(req);
             res.redirect("/");
         }
-    }
+    },
 ];
 export { getSignIn, attemptSignIn };
