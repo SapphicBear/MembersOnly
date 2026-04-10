@@ -1,4 +1,6 @@
 import { links } from "../data/links.js";
+import { signInValidation } from "./input_validation/signInValidation.js";
+import { matchedData, validationResult } from "express-validator";
 
 async function getSignIn(req, res) {
     const title = "Sign in to your account";
@@ -8,4 +10,23 @@ async function getSignIn(req, res) {
             links: links,
         });
 }
-export { getSignIn };
+
+const attemptSignIn = [
+    signInValidation,
+
+    async (req, res, next) => {
+        const title = "Sign in to your account";
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            res.render("sign-in", {
+                errors: errors.array(),
+                links: links,
+                title: title,
+            });
+        } else {
+            const data = matchedData(req);
+            res.redirect("/");
+        }
+    }
+];
+export { getSignIn, attemptSignIn };
