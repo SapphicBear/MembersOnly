@@ -6,6 +6,13 @@
 <body>
     <main aria-labelledby="main">
         <h2 id="main">Sign in</h2>
+        <% if (locals.errors) { %>
+            <ul class="error-list">        
+                <% errors.map((error) => { %>
+                    <li class="error"><%= error.message %></li>
+                <% }); %>
+            </ul>
+        <%}%>
         <form action="/" method="get">
             <div class="form-row">
                 <label for="username"></label>
