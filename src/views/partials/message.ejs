@@ -1,0 +1,15 @@
+<% messages.map((message) => { %>
+    <article class="message">
+        <h3 class="message-title">
+            <%= message.title %>
+        </h3>
+        <div class="message-info">
+            <p class="username">
+                <%= message.user %>
+            </p>
+            <p class="creation-date">
+                <%= message.createDate %>
+            </p>
+        </div>
+    </article>
+<% }); %>
