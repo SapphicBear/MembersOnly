@@ -2,14 +2,19 @@ import express from "express";
 import path from "node:path";
 import { fileURLToPath } from "url";
 import "@dotenvx/dotenvx/config";
+import session from "express-session";
+import ConnectPgSimple from "connect-pg-simple";
+import {pool} from "./../db/pool.js";
 
 import { indexRouter } from "./routes/indexRoute.js";
 import { signInRouter } from "./routes/signInRoute.js";
 import { signUpRouter } from "./routes/signUpRoute.js";
+import { passport } from "./passport/passport.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+const pgSession = new ConnectPgSimple(session);
 const PORT = process.env.PORT || 3000;
 const app = express();
 
@@ -18,7 +23,16 @@ app.set("view engine", "ejs");
 
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
-
+app.use(session({
+    secret: "keyboard cat",
+    resave: false,
+    saveUninitialized: false,
+    store: new pgSession({
+        pool: pool
+    }),
+    cookie: { maxAge: 30 * 24 * 60 * 60 * 1000 }
+}));
+app.use(passport.session());
 
 app.use("/", indexRouter);
 app.use("/sign-in", signInRouter);
