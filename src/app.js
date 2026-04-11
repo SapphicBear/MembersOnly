@@ -30,7 +30,7 @@ app.use(session({
     store: new pgSession({
         pool: pool
     }),
-    cookie: { maxAge: 30 * 24 * 60 * 60 * 1000 }
+    cookie: { maxAge: 60000 * 60 * 2 }
 }));
 app.use(passport.session());
 
