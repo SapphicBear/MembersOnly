@@ -16,7 +16,7 @@
             </ul>
         <%}%>
 
-        <form action="/sign-up" method="post">
+        <form action="/sign-up" method="post" class="sign-up">
             <div class="form-row">
                 <label for="first_name">First name:</label>
                 <input type="text" id="first_name" name="first_name" required />
@@ -41,9 +41,9 @@
                 <label for="password-check">Repeat your password:</label>
                 <input type="password" name="password-check" id="password-check" required />
             </div>
-            <div class="form-row">
-                <button class="sign-up-button" type="submit">Sign up</button>
-            </div>
+            
+            <button class="sign-up-button" type="submit">Sign up</button>
+            
         </form>
     </main>
 
