@@ -11,7 +11,6 @@ async function getSignIn(req, res) {
             links: links,
             errors: req.errors,
         });
-        ;
 }
 
 const attemptSignIn = [
@@ -19,7 +18,6 @@ const attemptSignIn = [
 
     (req, res, next) => {
         const errors = validationResult(req);
-        console.log(errors);
         if (!errors.isEmpty()) {
             res.render("sign-in", {
                 errors: errors.array(),
@@ -32,16 +30,7 @@ const attemptSignIn = [
                 successRedirect: "/",
                 failureMessage: true,
             })(req, res, next);
-            next();
         }
     },
-    (req, res) => {
-        res.render("sign-in", {
-            errors: req.session.messages,
-            links: links,
-            title: signIn
-        })
-        console.log(req.session.messages)
-    }
 ];
 export { getSignIn, attemptSignIn };

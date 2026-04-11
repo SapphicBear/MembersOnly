@@ -4,10 +4,9 @@
     <%- include("./partials/head.ejs"), { title: title } %>
 </head>
 <body>
+    <div class="wrapper">
     <header>
         <%- include("./partials/header.ejs", { header: header }); %>
-    </header>
-    <main>
         <% if (locals.user) { %>
             <h2>You are logged in <%= user.username %></h2>
             <a href="/log-out">Log out</a>
@@ -15,9 +14,13 @@
             <h2>Please log in</h2>
             <a href="/sign-in">Please log in</a>
         <% } %>
+    </header>
+    <main>
+        
     </main>
     <footer>
         <%- include("./partials/footer.ejs", { links: links }); %>
     </footer>
+    </div>
 </body>
 </html>
