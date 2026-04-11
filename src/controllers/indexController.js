@@ -1,11 +1,11 @@
 import { links } from "../data/links.js";
+import { titles } from "../data/titles.js";
 
 async function indexGet(req, res) {
     const header = "Secret Message";
-    const title = "Members Only!";
     res.render("index", 
         {
-            title: title,
+            title: titles.index,
             header: header,
             links: links,
         });

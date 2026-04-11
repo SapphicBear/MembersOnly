@@ -2,6 +2,7 @@ import express from "express";
 import path from "node:path";
 import { fileURLToPath } from "url";
 import "@dotenvx/dotenvx/config";
+
 import { indexRouter } from "./routes/indexRoute.js";
 import { signInRouter } from "./routes/signInRoute.js";
 import { signUpRouter } from "./routes/signUpRoute.js";
