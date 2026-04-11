@@ -25,6 +25,7 @@ const attemptSignIn = [
                 title: titles.signIn,
             });
         } else {
+            req.body = matchedData(req);
             passport.authenticate("local", {
                 successRedirect: "/",
                 failureRedirect: "/sign-in",
