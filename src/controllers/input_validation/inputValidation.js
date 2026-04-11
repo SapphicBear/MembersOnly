@@ -56,4 +56,4 @@ const signUp = [
         }).withMessage(errors.match.email),
 ];
 
-export { signIn, signUp };
+export { signIn, signUp, errors };

@@ -11,13 +11,15 @@ async function getSignIn(req, res) {
             links: links,
             errors: req.errors,
         });
+        ;
 }
 
 const attemptSignIn = [
     signIn,
 
-    async (req, res, next) => {
+    (req, res, next) => {
         const errors = validationResult(req);
+        console.log(errors);
         if (!errors.isEmpty()) {
             res.render("sign-in", {
                 errors: errors.array(),
@@ -28,10 +30,18 @@ const attemptSignIn = [
             req.body = matchedData(req);
             passport.authenticate("local", {
                 successRedirect: "/",
-                failureRedirect: "/sign-in",
                 failureMessage: true,
             })(req, res, next);
+            next();
         }
+    },
+    (req, res) => {
+        res.render("sign-in", {
+            errors: req.session.messages,
+            links: links,
+            title: signIn
+        })
+        console.log(req.session.messages)
     }
 ];
 export { getSignIn, attemptSignIn };

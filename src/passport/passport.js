@@ -4,7 +4,7 @@ import bcrypt from "bcryptjs";
 import * as db from "./../../db/queries.js";
 
 passport.use(
-    new localStrategy(async (username, password, done) => {
+    new localStrategy( async (username, password, done) => {
         try {
             const { rows } = await db.getSelectedUser(username);
             const user = rows[0];

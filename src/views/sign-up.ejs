@@ -4,14 +4,14 @@
     <%- include("./partials/head.ejs", { title: title }) %>
 </head>
 <body>
-
+    <div class="wrapper">
     <main aria-labelledby="main">
         <h2 id="main">Create your new account</h2>
         
         <% if (errors) { %>
             <ul class="error-list">        
                 <% errors.map((error) => { %>
-                    <li class="error"><%= error.message %></li>
+                    <li class="error"><%= error.msg %></li>
                 <% }); %>
             </ul>
         <%}%>
@@ -50,5 +50,6 @@
     <footer>
         <%- include("./partials/footer.ejs", { links: links }); %>
     </footer>
+    </div>
 </body>
 </html>
