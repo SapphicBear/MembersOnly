@@ -9,6 +9,7 @@ import {pool} from "./../db/pool.js";
 import { indexRouter } from "./routes/indexRoute.js";
 import { signInRouter } from "./routes/signInRoute.js";
 import { signUpRouter } from "./routes/signUpRoute.js";
+import { logOutRouter } from "./routes/logoutRoute.js";
 import { passport } from "./passport/passport.js";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -37,6 +38,7 @@ app.use(passport.session());
 app.use("/", indexRouter);
 app.use("/sign-in", signInRouter);
 app.use("/sign-up", signUpRouter);
+app.use("/log-out", logOutRouter);
 
 app.use((error, req, res, next) => {
     console.error(error);

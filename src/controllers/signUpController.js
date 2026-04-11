@@ -11,7 +11,7 @@ async function getSignUp(req, res) {
             title: titles.signUp, 
             links: links ,
             input: "",
-            errors: "",
+            errors: req.errors,
         });
 }
 const postSignUp = [

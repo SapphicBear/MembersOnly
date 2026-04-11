@@ -8,6 +8,7 @@ async function indexGet(req, res) {
             title: titles.index,
             header: header,
             links: links,
+            user: req.user
         });
 }
 export { indexGet };

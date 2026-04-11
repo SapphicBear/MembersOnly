@@ -9,6 +9,7 @@ async function getSignIn(req, res) {
         {
             title: titles.signIn,
             links: links,
+            errors: req.errors,
         });
 }
 
