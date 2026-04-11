@@ -8,7 +8,7 @@
     <main aria-labelledby="main">
         <h2 id="main">Create your new account</h2>
         
-        <% if (locals.errors) { %>
+        <% if (errors) { %>
             <ul class="error-list">        
                 <% errors.map((error) => { %>
                     <li class="error"><%= error.message %></li>
@@ -18,16 +18,31 @@
 
         <form action="/sign-up" method="post">
             <div class="form-row">
-
+                <label for="first_name">First name:</label>
+                <input type="text" id="first_name" name="first_name" required />
             </div>
             <div class="form-row">
-                
+                <label for="last_name">Last Name:</label>
+                <input type="text" id="last_name" name="last_name" required />
             </div>
             <div class="form-row">
-                
+                <label for="email">E-mail:</label>
+                <input type="email" name="email" id="email" />
             </div>
             <div class="form-row">
-                
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" />
+            </div>
+            <div class="form-row">
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password" required />
+            </div>
+            <div class="form-row">
+                <label for="password-check">Repeat your password:</label>
+                <input type="password" name="password-check" id="password-check" required />
+            </div>
+            <div class="form-row">
+                <button class="sign-up-button" type="submit">Sign up</button>
             </div>
         </form>
     </main>
