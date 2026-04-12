@@ -4,7 +4,7 @@ import { fileURLToPath } from "url";
 import "@dotenvx/dotenvx/config";
 import session from "express-session";
 import ConnectPgSimple from "connect-pg-simple";
-import {pool} from "./../db/pool.js";
+import { pool } from "./../db/pool.js";
 
 import { indexRouter } from "./routes/indexRoute.js";
 import { signInRouter } from "./routes/signInRoute.js";

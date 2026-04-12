@@ -11,6 +11,13 @@ CREATE TABLE IF NOT EXISTS users (
     email VARCHAR(255),
     password VARCHAR(255)
 );
+CREATE TABLE IF NOT EXISTS messages (
+    id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+    user_id INTEGER REFERENCES users(id),
+    title VARCHAR(255),
+    body VARCHAR(255),
+    date VARCHAR(255)
+);
 `;
 
 async function main(arg) {
