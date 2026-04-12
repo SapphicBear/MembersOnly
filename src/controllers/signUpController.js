@@ -6,13 +6,17 @@ import * as bcrypt from "bcryptjs";
 import * as db from "./../../db/queries.js";
 
 async function getSignUp(req, res) {
-    res.render("sign-up", 
+    if (req.user) {
+        res.redirect("/");
+    } else {
+        res.render("sign-up", 
         { 
             title: titles.signUp, 
             links: links ,
             input: "",
             errors: req.errors,
         });
+    }
 }
 const postSignUp = [
     signUp,

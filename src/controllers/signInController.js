@@ -5,12 +5,17 @@ import { matchedData, validationResult } from "express-validator";
 import { passport } from "./../passport/passport.js";
 
 async function getSignIn(req, res) {
-    res.render("sign-in", 
+    if (req.user) {
+        res.redirect("/");
+    } else {
+        res.render("sign-in", 
         {
             title: titles.signIn,
             links: links,
-            errors: req.errors,
+            errors: req.errors || req.session.error,
         });
+        req.session.error = [];
+    }
 }
 
 const attemptSignIn = [
