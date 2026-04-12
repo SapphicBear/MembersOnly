@@ -9,13 +9,16 @@ async function getSignUp(req, res) {
     if (req.user) {
         res.redirect("/");
     } else {
+        req.session.error.push({ msg: req.session.messages[0] });
         res.render("sign-up", 
         { 
             title: titles.signUp, 
             links: links ,
             input: "",
-            errors: req.errors,
+            errors: req.errors || req.session.error,
         });
+        req.session.error = [];
+        req.session.messages = [];
     }
 }
 const postSignUp = [

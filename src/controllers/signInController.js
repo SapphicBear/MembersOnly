@@ -8,6 +8,7 @@ async function getSignIn(req, res) {
     if (req.user) {
         res.redirect("/");
     } else {
+        req.session.error.push({ msg: req.session.messages[0] });
         res.render("sign-in", 
         {
             title: titles.signIn,
@@ -15,6 +16,7 @@ async function getSignIn(req, res) {
             errors: req.errors || req.session.error,
         });
         req.session.error = [];
+        req.session.messages = [];
     }
 }
 
@@ -33,6 +35,7 @@ const attemptSignIn = [
             req.body = matchedData(req);
             passport.authenticate("local", {
                 successRedirect: "/",
+                failureRedirect: "/sign-in",
                 failureMessage: true,
             })(req, res, next);
         }
