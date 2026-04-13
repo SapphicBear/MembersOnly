@@ -8,38 +8,82 @@
     <main aria-labelledby="main">
         <h2 id="main">Create your new account</h2>
         
-        <% if (errors) { %>
-            <ul class="error-list">        
+        <% if (locals.errors.length) { %>
+            <ul class="error-list">
                 <% errors.map((error) => { %>
-                    <li class="error"><%= error.msg %></li>
+                    <% if (!error.path) { %>
+                        <li class="error"><%= error.msg %></li>
+                    <% } %>
                 <% }); %>
             </ul>
-        <%}%>
+        <% } %>
 
         <form action="/sign-up" method="post" class="sign-up">
             <div class="form-row">
                 <label for="first_name">First name:</label>
                 <input type="text" id="first_name" name="first_name" required />
+                <% if (locals.errors) { %>
+                    <% errors.map((error) => { %>
+                        <% if (error.path === "first_name") { %>
+                            <span class="error"><%= error.msg %></span>
+                        <% } %>
+                    <% }); %>
+                <% } %>
             </div>
             <div class="form-row">
                 <label for="last_name">Last Name:</label>
                 <input type="text" id="last_name" name="last_name" required />
+                <% if (locals.errors) { %>
+                    <% errors.map((error) => { %>
+                        <% if (error.path === "last_name") { %>
+                            <span class="error"><%= error.msg %></span>
+                        <% } %>
+                    <% }); %>
+                <% } %>
             </div>
             <div class="form-row">
                 <label for="email">E-mail:</label>
                 <input type="email" name="email" id="email" />
+                <% if (locals.errors) { %>
+                    <% errors.map((error) => { %>
+                        <% if (error.path === "email") { %>
+                            <span class="error"><%= error.msg %></span>
+                        <% } %>
+                    <% }); %>
+                <% } %>
             </div>
             <div class="form-row">
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username" />
+                <% if (locals.errors) { %>
+                    <% errors.map((error) => { %>
+                        <% if (error.path === "username") { %>
+                            <span class="error"><%= error.msg %></span>
+                        <% } %>
+                    <% }); %>
+                <% } %>
             </div>
             <div class="form-row">
                 <label for="password">Password:</label>
                 <input type="password" name="password" id="password" required />
+                <% if (locals.errors) { %>
+                    <% errors.map((error) => { %>
+                        <% if (error.path === "password") { %>
+                            <span class="error"><%= error.msg %></span>
+                        <% } %>
+                    <% }); %>
+                <% } %>
             </div>
             <div class="form-row">
                 <label for="password-check">Repeat your password:</label>
                 <input type="password" name="password-check" id="password-check" required />
+                <% if (locals.errors) { %>
+                    <% errors.map((error) => { %>
+                        <% if (error.path === "password-check") { %>
+                            <span class="error"><%= error.msg %></span>
+                        <% } %>
+                    <% }); %>
+                <% } %>
             </div>
             
             <button class="sign-up-button" type="submit">Sign up</button>

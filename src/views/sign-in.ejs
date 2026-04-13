@@ -7,7 +7,7 @@
     <div class="wrapper">
     <main aria-labelledby="main">
         <h2 id="main">Sign in</h2>
-        <% if (locals.errors) { %>
+        <% if (locals.errors.length) { %>
             <ul class="error-list">
                 <% errors.map((error) => { %>
                     <% if (!error.path) { %>

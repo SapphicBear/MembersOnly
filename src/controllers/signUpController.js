@@ -10,7 +10,7 @@ async function getSignUp(req, res) {
         res.redirect("/");
     } else {
         if (req.session.messages) {
-            req.session.error.push({ msg: req.session.messages[0] });
+            req.session.messages.forEach((msg) => req.session.errors.push({ msg: msg}))
         }
         res.render("sign-up", 
         { 

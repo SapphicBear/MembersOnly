@@ -8,8 +8,8 @@ async function getSignIn(req, res) {
     if (req.user) {
         res.redirect("/");
     } else {
-        if (req.session.messages) {
-            req.session.error.push({ msg: req.session.messages[0] });
+        if (Array.isArray(req.session.messages) || req.session.messages.length > 0) {
+            req.session.messages.forEach((msg) => req.session.error.push({ msg: msg }));
         }
         res.render("sign-in", 
         {
