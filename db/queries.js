@@ -27,4 +27,23 @@ async function getUserId(id) {
     const { rows } = await pool.query(query, [id]);
     return rows;
 }
-export { getUsers, newUser, getSelectedUser, getUserId };
+
+async function newMessage(id, title, body) {
+    const query = `
+    INSERT INTO messages (user_id, title, body, date) 
+        VALUES (
+            $1, $2, $3, $4
+        );
+    `;
+    await pool.query(query, [id, title, body, new Date()]);
+}
+
+async function getMessages() {
+    const query = `
+    SELECT title, body, date, users.username FROM messages 
+        JOIN users ON (users.id = user_id);
+    `;
+    const { rows } = await pool.query(query);
+    return rows;
+}
+export { getUsers, newUser, getSelectedUser, getUserId, newMessage, getMessages };

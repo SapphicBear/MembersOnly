@@ -7,6 +7,8 @@ const errors = {
         firstName: "Please enter your first name.",
         lastName: "Please enter your last name.",
         email: "Please enter your email.",
+        message: "Please write your message!",
+        title: "Please provide a title for your message!",
     },
     type: {
         email: "Email must be a valid email address.",
@@ -56,4 +58,22 @@ const signUp = [
         }).withMessage(errors.match.email),
 ];
 
-export { signIn, signUp, errors };
+const newMessage = [
+    body("title")
+    .notEmpty()
+    .withMessage(errors.length.title)
+    .trim()
+    .isAlpha()
+    .escape()
+    ,
+    body("body")
+    .notEmpty()
+    .withMessage(errors.length.message)
+    .trim()
+    .isAlphanumeric()
+    .escape()
+    ,
+];
+
+
+export { signIn, signUp, errors, newMessage };

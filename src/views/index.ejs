@@ -16,7 +16,7 @@
         <% } %>
     </header>
     <main>
-        
+        <%- include("./partials/message.ejs", { messages: messages, user: user }); %>
     </main>
     <footer>
         <%- include("./partials/footer.ejs", { links: links }); %>
