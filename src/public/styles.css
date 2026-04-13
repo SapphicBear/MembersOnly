@@ -63,6 +63,8 @@ main {
     border-radius: 14px;
     border: rgb(0, 8, 82) solid 2px;
     grid-row: 2;
+    max-width: 800px;
+    min-width: fit-content;
 }
 .sign-in {
     display: grid;

@@ -12,7 +12,8 @@ async function getNewMessage(req, res) {
         { 
             title: titles.newMessage, 
             links: links, 
-            header: "New Message!" 
+            header: "New Message!",
+            user: req.user,
         });
     }
 }
