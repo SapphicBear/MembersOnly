@@ -70,7 +70,6 @@ const newMessage = [
     .notEmpty()
     .withMessage(errors.length.message)
     .trim()
-    .isAlphanumeric()
     .escape()
     ,
 ];
