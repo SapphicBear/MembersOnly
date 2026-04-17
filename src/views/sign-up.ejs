@@ -5,9 +5,6 @@
 </head>
 <body>
     <div class="wrapper">
-    <main aria-labelledby="main">
-        <h2 id="main">Create your new account</h2>
-        
         <% if (locals.errors.length) { %>
             <ul class="error-list">
                 <% errors.map((error) => { %>
@@ -17,6 +14,8 @@
                 <% }); %>
             </ul>
         <% } %>
+    <main aria-labelledby="main">
+        <h2 id="main">Create your new account</h2>
 
         <form action="/sign-up" method="post" class="sign-up">
             <div class="form-row">
