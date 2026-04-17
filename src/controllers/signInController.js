@@ -8,7 +8,7 @@ async function getSignIn(req, res) {
     if (req.user) {
         res.redirect("/");
     } else {
-        if (Array.isArray(req.session.messages) || req.session.messages.length > 0) {
+        if (req.session.messages) {
             req.session.messages.forEach((msg) => req.session.error.push({ msg: msg }));
         }
         res.render("sign-in", 
