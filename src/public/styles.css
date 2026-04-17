@@ -49,22 +49,44 @@ li {
 }
 .wrapper {
     min-height: 100vh;
+    gap: 1rem;
     display: grid;
+    grid-template-areas: 
+        "header header header"
+        "main main main"
+        "footer footer footer";
     grid-template-rows: 100px 1fr 100px;
-    align-items: center;
-    justify-items: center;
-    justify-content: stretch;
+}
+
+header, footer, main {
+    margin-inline: auto;
+}
+header {
+    grid-area: header;
 }
 main {
-    padding: 2rem;
+    grid-area: main;
+}
+footer {
+    grid-area: footer;
+}
+main.index {
     display: grid;
-    gap: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+    max-width: 900px;
+    padding: 2rem;
     border-radius: 14px;
     border: rgb(0, 8, 82) solid 2px;
-    grid-row: 2;
-    max-width: 800px;
-    min-width: fit-content;
+    gap: 1rem;
+    align-content: start;
+    background: rgb(212, 229, 255);
+}
+article {
+    padding: 1rem;
+    min-height: 100px;
+    border: 2px rgb(47, 0, 255) dotted;
+    border-radius: 14px;
+    background: rgb(255, 253, 253);
 }
 .sign-in {
     display: grid;
@@ -85,7 +107,4 @@ textarea {
     resize: none;
     max-height: 130px;
     max-width: 500px;
-}
-footer {
-    grid-row: 3;
 }
