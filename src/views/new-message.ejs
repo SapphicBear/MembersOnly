@@ -8,7 +8,7 @@
         <header>
             <%- include("./partials/header.ejs", { header: header }); %>
         </header>
-        <main aria-labelledby="main">
+        <main aria-labelledby="main" class="new-message">
             <h2 id="main">New Message!</h2>
             <form class="new-message" action="/new-message" method="post">
                 <div class="form-row">
@@ -20,8 +20,8 @@
                     <textarea name="body" id="text-body" required rows="5" cols="30" minlength="1" maxlength="255"><%= message ? message.body : "" %></textarea>
                 </div>
                 <div class="form-row">
-                    <button class="submit" type="submit">Submit</button>
-                    <a class="button cancel-button" href="/">Cancel</a>
+                    <button class="submit button" type="submit">Submit</button>
+                    <button class="button" type="button" onclick="location.href='/'">Cancel</button>
                 </div>
             </form>
 

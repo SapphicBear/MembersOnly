@@ -7,13 +7,18 @@
     <div class="wrapper">
     <header>
         <%- include("./partials/header.ejs", { header: header }); %>
+        
         <% if (locals.user) { %>
             <h2>You are logged in <%= user.username %></h2>
-            <a href="/log-out">Log out</a>
-            <a href="/new-message">New Message</a>
+            <div class="logarea">
+                <button type="button" class="button" onclick="location.href = '/log-out'">Log out</button>
+                <button type="button" class="button" onclick="location.href='/new-message'">New Message</button>
+            </div>
         <% } else { %>
             <h2>Please log in</h2>
-            <a href="/sign-in">Please log in</a>
+            <div class="logarea">
+                <a href="/sign-in" class="button">Please log in</a>
+            </div>
         <% } %>
     </header>
     <main class="index">

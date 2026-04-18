@@ -52,6 +52,12 @@ ul, li {
 li {
     list-style: none;
 }
+/* a:link {
+    color: var(--light-blue);
+}
+a:visited {
+    color: var(--dark-blue);
+} */
 .wrapper {
     background: var(--dark-blue);
     background: 
@@ -59,6 +65,7 @@ li {
             var(--white),
             var(--light-blue),
             var(--dark-blue), 
+            var(--black),
             var(--black)
         );
     min-height: 100vh;
@@ -78,13 +85,37 @@ header, footer, main {
 header {
     grid-area: header;
     color: var(--dark-blue);
+    display: flex;
+    gap: 0.25rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 main {
     grid-area: main;
 }
 footer {
     grid-area: footer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     color: white;
+}
+.button {
+    background: 
+        linear-gradient(
+            var(--light-blue),
+            var(--dark-blue)
+        );
+    border-radius: 8px;
+    color: var(--white);
+    text-align: center;
+    text-decoration: none;
+}
+.link-area {
+    display: flex;
+    gap: 1rem;
 }
 main.index {
     display: grid;
@@ -92,6 +123,7 @@ main.index {
     max-width: 900px;
     padding: 1rem;
     border-radius: 14px;
+    border-bottom: 2px solid var(--dark-blue);
     gap: 1rem;
     align-content: start;
     background: 
