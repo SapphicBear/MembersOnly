@@ -9,6 +9,7 @@ const errors = {
         email: "Please enter your email.",
         message: "Please write your message!",
         title: "Please provide a title for your message!",
+        bodyMax: "Message cannot be longer than 255 characters!",
     },
     type: {
         email: "Email must be a valid email address.",
@@ -69,6 +70,8 @@ const newMessage = [
     body("body")
     .notEmpty()
     .withMessage(errors.length.message)
+    .isLength({ max: 255 })
+    .withMessage(errors.length.bodyMax)
     .trim()
     .escape()
     ,
