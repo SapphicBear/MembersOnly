@@ -52,12 +52,12 @@ ul, li {
 li {
     list-style: none;
 }
-/* a:link {
+a:link {
     color: var(--light-blue);
 }
 a:visited {
     color: var(--dark-blue);
-} */
+}
 .wrapper {
     background: var(--dark-blue);
     background: 
@@ -156,12 +156,16 @@ article {
     gap: 1rem;
     grid-template-columns: repeat(auto-fit, minmax(20ch, 1fr));
 }
+.sign-up-redirect {
+    color: var(--white);
+}
 .sign-up {
     display: grid;
     gap: 1rem;
     grid-template-columns: repeat(2, minmax(20ch, 1fr));
 }
 .form-row {
+    color: white;
     display: grid;
     gap: 0.50rem;
     grid-template-columns: repeat(auto-fit, minmax(20ch, 1fr));
