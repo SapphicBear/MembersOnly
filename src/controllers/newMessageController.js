@@ -16,6 +16,7 @@ async function getNewMessage(req, res) {
             links: links, 
             header: "New Message!",
             user: req.user,
+            message: "",
         });
     }
 }
@@ -25,11 +26,16 @@ const postNewMessage = [
     async (req, res) => {
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
+            const message = {
+                title: req.body.title,
+                body: req.body.body,
+            };
             res.render("new-message", {
                 errors: errors.array(),
                 links: links,
                 title: titles.newMessage,
-                header: "New Message!"
+                header: "New Message!",
+                message: message,
             });
         } else {
             const data = matchedData(req);

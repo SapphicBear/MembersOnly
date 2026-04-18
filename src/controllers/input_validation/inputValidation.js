@@ -70,7 +70,7 @@ const newMessage = [
     body("body")
     .notEmpty()
     .withMessage(errors.length.message)
-    .isLength({ max: 255 })
+    .isLength({ min: 1, max: 255 })
     .withMessage(errors.length.bodyMax)
     .trim()
     .escape()
