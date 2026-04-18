@@ -7,7 +7,12 @@
     box-sizing: border-box;
 }
 :root {
-  font-family: system-ui, Helvetica, Arial, sans-serif;
+    font-family: system-ui, Helvetica, Arial, sans-serif;
+    --black: rgb(13, 19, 37);
+    --white: rgb(253, 254, 255);
+    --dark-blue: rgb(56, 46, 151);
+    --light-blue: rgb(109, 93, 255);
+
 }
 *:not(dialog) {
     margin: 0;
@@ -48,6 +53,14 @@ li {
     list-style: none;
 }
 .wrapper {
+    background: var(--dark-blue);
+    background: 
+        linear-gradient(
+            var(--white),
+            var(--light-blue),
+            var(--dark-blue), 
+            var(--black)
+        );
     min-height: 100vh;
     gap: 1rem;
     display: grid;
@@ -60,35 +73,44 @@ li {
 
 header, footer, main {
     margin-inline: auto;
+    
 }
 header {
     grid-area: header;
+    color: var(--dark-blue);
 }
 main {
     grid-area: main;
 }
 footer {
     grid-area: footer;
+    color: white;
 }
 main.index {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
     max-width: 900px;
-    padding: 2rem;
+    padding: 1rem;
     border-radius: 14px;
-    border: rgb(0, 8, 82) solid 2px;
     gap: 1rem;
     align-content: start;
-    background: rgb(212, 229, 255);
+    background: 
+        linear-gradient(
+            var(--white),
+            var(--light-blue),
+            var(--light-blue),
+            var(--light-blue),
+            var(--black)
+        );
 }
 article {
     padding: 1rem;
     display: flex;
     flex-direction: column;
     min-height: 100px;
-    border: 2px rgb(47, 0, 255) dotted;
     border-radius: 14px;
-    background: rgb(255, 253, 253);
+    box-shadow: var(--black) inset 0px 1px 7px;
+    background: var(--white);
 }
 .message-info {
     color: rgb(128, 126, 141);
