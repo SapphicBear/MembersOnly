@@ -6,12 +6,12 @@ import { passport } from "./../passport/passport.js";
 
 async function getSignIn(req, res) {
     if (req.user) {
-        res.redirect("/");
+        res.status(401).redirect("/");
     } else {
         if (req.session.messages) {
             req.session.messages.forEach((msg) => req.session.error.push({ msg: msg }));
         }
-        res.render("sign-in", 
+        res.status(400).render("sign-in", 
         {
             title: titles.signIn,
             links: links,
@@ -28,7 +28,7 @@ const attemptSignIn = [
     (req, res, next) => {
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
-            res.render("sign-in", {
+            res.status(400).render("sign-in", {
                 errors: errors.array(),
                 links: links,
                 title: titles.signIn,

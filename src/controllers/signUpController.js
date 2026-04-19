@@ -7,12 +7,12 @@ import * as db from "./../../db/queries.js";
 
 async function getSignUp(req, res) {
     if (req.user) {
-        res.redirect("/");
+        res.status(401).redirect("/");
     } else {
         if (req.session.messages) {
             req.session.messages.forEach((msg) => req.session.errors.push({ msg: msg}))
         }
-        res.render("sign-up", 
+        res.status(400).render("sign-up", 
         { 
             title: titles.signUp, 
             links: links ,
@@ -34,7 +34,7 @@ const postSignUp = [
                 email: req.body.email,
                 username: req.body.username
             };
-            res.render("sign-up", 
+            res.status(400).render("sign-up", 
                 {
                     errors: errors.array(),
                     links: links,

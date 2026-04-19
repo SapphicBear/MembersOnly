@@ -8,7 +8,7 @@
                 Created by: <%= user ? message.username : "Anonymous" %>
             </p>
             <p class="creation-date">
-                <%= message.date %> ago
+                <%= user ? message.date + " ago" : "" %>
             </p>
         </div>
         <div class="message-body">

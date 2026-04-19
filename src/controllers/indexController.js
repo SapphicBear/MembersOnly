@@ -8,7 +8,7 @@ async function indexGet(req, res) {
     const messages = await db.getMessages();
     messages.map((message) => {
         message.date = formatDistanceToNow(message.date, { includeSeconds: true });
-    })
+    });
     res.render("index", 
         {
             title: titles.index,

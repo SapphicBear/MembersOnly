@@ -8,9 +8,9 @@ async function getNewMessage(req, res) {
     if (!req.user) {
         const error = { msg: "Not authorized. Please Sign in or make an account." }
         req.session.error = [error];
-        res.redirect("/sign-in");
+        res.status(401).redirect("/sign-in");
     } else {
-        res.render("new-message", 
+        res.status(400).render("new-message", 
         { 
             title: titles.newMessage, 
             links: links, 
@@ -24,13 +24,18 @@ const postNewMessage = [
     newMessage,
 
     async (req, res) => {
+        if (!req.user) {
+            const error = { msg: "Not authorized. Please Sign in or make an account." }
+            req.session.error = [error];
+            res.status(401).redirect("/sign-in");
+        }
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
             const message = {
                 title: req.body.title,
                 body: req.body.body,
             };
-            res.render("new-message", {
+            res.status(400).render("new-message", {
                 errors: errors.array(),
                 links: links,
                 title: titles.newMessage,
