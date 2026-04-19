@@ -4,7 +4,7 @@
     <%- include("./partials/head", { title: title }); %>
 </head>
 <body>
-    <div class="wrapper">
+    <div class="wrapper sign-in">
         <% if (locals.errors) { %>
             <ul class="error-list">
                 <% errors.map((error) => { %>
@@ -16,7 +16,7 @@
         <% } %>
     <main aria-labelledby="main" class="sign-in">
         <h2 id="main">Sign in</h2>
-        <form action="/sign-in" method="post" class="sign-in">
+        <form action="/sign-in" method="post" class="form-sign-in">
             <div class="form-row">
                 <label for="username"></label>
                 <input type="text" name="username" id="username" placeholder="Username...">
@@ -43,7 +43,7 @@
                 <button type="submit" class="button">Sign in</button>         
             </div>
             <div class="form-row">
-                <p class="sign-up-redirect">Don't have an account? <a href="/sign-up">Sign up here!</a></p>
+                <p class="sign-up-redirect">Don't have an account? <a href="/sign-up" class="sign-up-link">Sign up here!</a></p>
             </div>
         </form>
     </main>
