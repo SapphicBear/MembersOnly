@@ -16,10 +16,10 @@
         <% } %>
     <main aria-labelledby="main" class="sign-in">
         <h2 id="main">Sign in</h2>
-        <form action="/sign-in" method="post" class="form-sign-in">
+        <form action="/sign-in" method="post" class="form-sign-in" novalidate>
             <div class="form-row">
                 <label for="username"></label>
-                <input type="text" name="username" id="username" placeholder="Username...">
+                <input type="text" name="username" id="username" placeholder="Username..." required>
                 <% if (locals.errors) { %>
                     <% errors.map((error) => { %>
                         <% if (error.path == "username") { %>
@@ -30,7 +30,7 @@
             </div>
             <div class="form-row">
                 <label for="password"></label>
-                <input type="password" name="password" id="password" placeholder="Password...">
+                <input type="password" name="password" id="password" placeholder="Password..." required>
                 <% if (locals.errors) { %>
                     <% errors.map((error) => { %>
                         <% if (error.path == "password") { %>

@@ -12,6 +12,8 @@
     --white: rgb(253, 254, 255);
     --dark-blue: rgb(56, 46, 151);
     --light-blue: rgb(109, 93, 255);
+    --red: rgb(236, 75, 75);
+    --dark-red: rgb(221, 10, 10);
 
 }
 *:not(dialog) {
@@ -135,14 +137,19 @@ main.index {
             var(--black)
         );
 }
+input:user-invalid {
+    outline: 4px solid var(--red);
+    animation: 500ms inputError;
+}
 .error {
     color: rgb(255, 255, 255);
-    background: rgb(209, 71, 71);
+    background: var(--red);
     padding: 0 0.5rem;
     text-align: center;
     border-radius: 8px;
     animation: 500ms showError;
     animation-fill-mode: forwards;
+    border-bottom: 2px solid var(--dark-red);
 }
 .wrapper.sign-in {
     place-items: center;
@@ -216,5 +223,14 @@ textarea {
     }
     100% {
         opacity: 1;
+    }
+}
+@keyframes inputError {
+    0% {
+        outline: rgb(255, 46, 46) 2px solid;
+        
+    }
+    100% {
+        outline: 4px solid rgb(209, 71, 71);
     }
 }
