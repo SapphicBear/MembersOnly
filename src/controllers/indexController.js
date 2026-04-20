@@ -11,7 +11,7 @@ async function indexGet(req, res) {
         const date = message.date.slice(0, 10).split("-");
         
         if (date[1] !== now[1] || (now[2] - date[2]) > 5) {
-            message.date = format(message.date, "PPP - HH:mm z");
+            message.date = format(message.date, "PPP - HH:mm \(z\)");
         } else {
             message.date = formatDistanceToNow(message.date, { includeSeconds: true }) + " ago";
         }
