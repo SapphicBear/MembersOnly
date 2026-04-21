@@ -51,8 +51,8 @@ const signUp = [
         .withMessage(errors.type.email)
         ,
     body("password")
-        .notEmpty().withMessage(errors.length.password)
-        .isLength({ min: 8 }),
+        .notEmpty()
+        .withMessage(errors.length.password),
     body("password_check")
         .custom(async (value, { req }) => {
             if (value !== req.body.password) {
