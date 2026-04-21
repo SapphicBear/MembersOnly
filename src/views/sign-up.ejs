@@ -4,7 +4,7 @@
     <%- include("./partials/head.ejs", { title: title }) %>
 </head>
 <body>
-    <div class="wrapper">
+    <div class="wrapper sign-up">
         <% if (locals.errors.length) { %>
             <ul class="error-list">
                 <% errors.map((error) => { %>
@@ -17,7 +17,7 @@
     <main aria-labelledby="main" class="sign-up">
         <h2 id="main">Create your new account</h2>
 
-        <form action="/sign-up" method="post" class="sign-up">
+        <form action="/sign-up" method="post" class="sign-up-form">
             <div class="form-row">
                 <label for="first_name">First name:</label>
                 <input type="text" id="first_name" name="first_name" required />
