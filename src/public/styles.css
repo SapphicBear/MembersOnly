@@ -175,7 +175,7 @@ main.sign-in {
 }
 main.sign-up {
     color: white;
-    max-height: 65vh;
+    min-height: 65vh;
     background: linear-gradient(
         var(--white),
         var(--light-blue),

@@ -17,7 +17,7 @@
     <main aria-labelledby="main" class="sign-up">
         <h2 id="main">Create your new account</h2>
 
-        <form action="/sign-up" method="post" class="sign-up-form">
+        <form action="/sign-up" method="post" class="sign-up-form" novalidate>
             <div class="form-row">
                 <label for="first_name">First name:</label>
                 <input type="text" id="first_name" name="first_name" required />
@@ -74,11 +74,11 @@
                 <% } %>
             </div>
             <div class="form-row">
-                <label for="password-check">Repeat your password:</label>
-                <input type="password" name="password-check" id="password-check" required />
+                <label for="password_check">Repeat your password:</label>
+                <input type="password" name="password_check" id="password_check" required />
                 <% if (locals.errors) { %>
                     <% errors.map((error) => { %>
-                        <% if (error.path === "password-check") { %>
+                        <% if (error.path === "password_check") { %>
                             <span class="error"><%= error.msg %></span>
                         <% } %>
                     <% }); %>
@@ -94,5 +94,18 @@
         <%- include("./partials/footer.ejs", { links: links }); %>
     </footer>
     </div>
+    <script>
+        const inputElements = document.querySelectorAll("input");
+        const errors = document.querySelectorAll(".error");
+        const checkInput = (element) => {
+            const error = element.srcElement.nextSibling.nextSibling;
+            error.remove();
+        }
+        inputElements.forEach((input) => {
+            input.addEventListener("input", (input) => {
+                checkInput(input);
+            });
+        });
+    </script>
 </body>
 </html>
