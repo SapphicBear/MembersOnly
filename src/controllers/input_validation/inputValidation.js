@@ -53,10 +53,12 @@ const signUp = [
     body("password")
         .notEmpty().withMessage(errors.length.password)
         .isLength({ min: 8 }),
-    body("password-check")
-        .custom((value, { req }) => {
-            return value === req.body.password;
-        }).withMessage(errors.match.email),
+    body("password_check")
+        .custom(async (value, { req }) => {
+            if (value !== req.body.password) {
+                throw new Error(errors.match.email);
+            };
+        }),
 ];
 
 const newMessage = [

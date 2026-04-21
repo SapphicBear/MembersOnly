@@ -51,5 +51,18 @@
         <%- include("./partials/footer.ejs", { links: links }); %>
     </footer>
     </div>
+    <script>
+        const inputElements = document.querySelectorAll("input");
+        const errors = document.querySelectorAll(".error");
+        const checkInput = (element) => {
+            const error = element.srcElement.nextSibling.nextSibling;
+            error.remove();
+        }
+        inputElements.forEach((input) => {
+            input.addEventListener("input", (input) => {
+                checkInput(input);
+            });
+        });
+    </script>
 </body>
 </html>
