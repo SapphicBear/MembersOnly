@@ -46,4 +46,13 @@ async function getMessages() {
     const { rows } = await pool.query(query);
     return rows;
 }
-export { getUsers, newUser, getSelectedUser, getUserId, newMessage, getMessages };
+async function makeUserAdmin(id) {
+    const query = `
+    UPDATE users 
+        SET isadmin = true
+        WHERE id = $1
+    `;
+    await pool.query(query, [id]);
+}
+
+export { getUsers, newUser, getSelectedUser, getUserId, newMessage, getMessages, makeUserAdmin };
