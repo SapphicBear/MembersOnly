@@ -11,7 +11,8 @@ async function getAdmin(req, res) {
         res.render("admin.ejs", 
             { 
                 links: links, 
-                title: titles.admin 
+                title: titles.admin,
+                user: req.user,
             });
     }
 }

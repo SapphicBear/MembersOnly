@@ -77,7 +77,7 @@ a:visited {
         "header header header"
         "main main main"
         "footer footer footer";
-    grid-template-rows: 100px 1fr 100px;
+    grid-template-rows: min-content 1fr 100px;
 }
 
 .error-list {
@@ -255,6 +255,7 @@ main.become-admin {
         var(--light-blue),
         var(--black)
     );
+    max-width: 500px;
     border-bottom: 2px solid var(--dark-blue);
     border-radius: 14px;
     padding: 1rem;
@@ -263,6 +264,9 @@ main.become-admin {
     min-height: 50vh;
     align-items: center;
     justify-content: space-evenly;
+    > h2 {
+        text-align: center;
+    }
 }
 .become-admin-form {
     display: flex;
