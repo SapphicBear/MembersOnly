@@ -15,7 +15,7 @@ const errors = {
         email: "Email must be a valid email address.",
     },
     match: {
-        email: "Emails must match each other.",
+        password: "Passwords must match each other.",
     }
 };
 
@@ -56,9 +56,10 @@ const signUp = [
     body("password_check")
         .custom(async (value, { req }) => {
             if (value !== req.body.password) {
-                throw new Error(errors.match.email);
+                throw new Error(errors.match.password);
             };
         }),
+    body("isadmin")
 ];
 
 const newMessage = [
@@ -66,7 +67,6 @@ const newMessage = [
     .notEmpty()
     .withMessage(errors.length.title)
     .trim()
-    .isAlpha()
     .escape()
     ,
     body("body")

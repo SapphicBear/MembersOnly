@@ -44,6 +44,7 @@ const postNewMessage = [
             });
         } else {
             const data = matchedData(req);
+            console.log(data);
             await db.newMessage(req.user.id, data.title, data.body);
             res.redirect("/");
         }

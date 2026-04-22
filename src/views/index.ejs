@@ -28,5 +28,23 @@
         <%- include("./partials/footer.ejs", { links: links }); %>
     </footer>
     </div>
+    <script>
+        (() => {
+            let user = '<%= user %>';
+            const randomNumber = Math.floor(Math.random() * 20);
+            function randomAdminChance(user) {
+                if (!user || user.isadmin) {
+                    return;
+                } else {
+                    if (randomNumber >= 16) {
+                        console.log("Hey... Do you wanna be an Admin? Go to the route 'become-admin'!");
+                    } else {
+                        console.log("hmm...");
+                    }
+                }
+            }
+            randomAdminChance(user);
+        })();
+    </script>
 </body>
 </html>

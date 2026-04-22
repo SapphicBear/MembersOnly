@@ -46,7 +46,7 @@ const postSignUp = [
             try { 
                 const name = `${data.first_name} ${data.last_name}`;
                 const hashedPassword = await bcrypt.hash(data.password, 10);
-                await db.newUser(name, data.username, data.email, hashedPassword);
+                await db.newUser(name, data.username, data.email, hashedPassword, data.isadmin);
                 res.redirect("/sign-in");
             } catch (err) {
                 console.error(err);

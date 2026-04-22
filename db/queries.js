@@ -8,11 +8,11 @@ async function getUsers() {
     return rows;
 }
 
-async function newUser(name, username, email, password) {
+async function newUser(name, username, email, password, isadmin) {
     const query = `
-    INSERT INTO users (name, username, email, password) VALUES ($1, $2, $3, $4);
+    INSERT INTO users (name, username, email, password, isadmin) VALUES ($1, $2, $3, $4, $5);
     `;
-    await pool.query(query, [name, username, email, password]);
+    await pool.query(query, [name, username, email, password, isadmin]);
 }
 async function getSelectedUser(username) {
     const query = `
