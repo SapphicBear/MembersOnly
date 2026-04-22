@@ -11,8 +11,8 @@
     
         <main class="become-admin">
             <h2>The secret admin administration registration area!</h2>
-            <p>Current User: <%= user.username %> </p>
             <form action="/become-admin" method="post" class="become-admin-form" novalidate>
+                <h3>Current User: <%= user.username %> </h3>
                 <div class="form-row">
                     <label for="isadmin">Become admin?</label>
                     <input type="checkbox" name="isadmin" id="isadmin">
@@ -20,10 +20,10 @@
                 <div class="form-row">
                     <label for="password">Secret Password?</label>
                     <input type="password" name="secret_password" id="secret_password" required />
-                    <% if (locals.errors) { %>
+                </div>
+                <% if (locals.errors) { %>
                         <span class="error"><%= errors.msg %></span>
                     <% } %>
-                </div>
                 <button type="submit" class="button">Submit</button>
                 <button type="button" class="button" onclick="location.href='/'">Cancel</button>
             </form>
