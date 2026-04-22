@@ -1,6 +1,6 @@
 <% users.map((user) => { %> 
     <section class="user" aria-labelledby="user-area">
-        <h3 id="user-area"><%= user.username %></h3>
+        <h4 id="user-area"><%= user.username %></h4>
         <p>User id: <%= user.id %></p>
         <ul class="messages">
             <% messages.map((msg) => { %>
@@ -8,7 +8,7 @@
                     <% msg.messages.map((m) => { %>
                         <li class="message">
                             <form action="/admin" method="post">
-                                <h4 class="message-title-reduced"><%= m.title %></h4>
+                                <h5 class="message-title-reduced"><%= m.title %></h5>
                                 <input type="hidden" name="id" value="<%= m.id %>">
                             
                                 <button type="submit" class="button remove">X</button>

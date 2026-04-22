@@ -6,11 +6,15 @@
 <body>
     <div class="wrapper admin">
         <header>
-            <h1>Admin Dashboard</h1>
+            <h1>Secret Message</h1>
+            <h2>Admin Area</h2>
+            <div class="button-area">
+                <button type="button" class="button" onclick="location.href = '/'">Return</button>
+            </div>
         </header>
 
         <main class="admin" aria-labelledby="main">
-            <h2 id="main">Welcome Admin Level user: <%= user.username %></h2>
+            <h3 id="main">Welcome Admin Level user: <%= user.username %></h3>
             <%- include("./partials/userInfo.ejs", { messages: messages, users: users }); %>
         </main>
 
