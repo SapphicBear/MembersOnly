@@ -1,0 +1,20 @@
+<% users.map((user) => { %> 
+    <section class="user" aria-labelledby="user-area">
+        <h3 id="user-area"><%= user.username %></h3>
+        <p>User id: <%= user.id %></p>
+        <ul class="messages">
+            <% messages.map((msg) => { %>
+                <%  if (msg.id == user.id) { %>
+                    <% msg.messages.map((m) => { %>
+                        <li class="message">
+                            <h4 class="message-title-reduced"><%= m.title %></h4>
+                            <form action="/admin" method="post">
+                                <button type="submit" class="button remove">X</button>
+                            </form>
+                        </li>
+                    <% }); %>
+                <% } %>
+            <% }); %>
+        </ul>
+    </section>
+<% }); %>

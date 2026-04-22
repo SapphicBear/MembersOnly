@@ -2,7 +2,7 @@ import { pool } from "./pool.js";
 
 async function getUsers() {
     const query = `
-    SELECT * FROM users;
+    SELECT username, id FROM users;
     `;
     const { rows } = await pool.query(query);
     return rows;
@@ -46,6 +46,16 @@ async function getMessages() {
     const { rows } = await pool.query(query);
     return rows;
 }
+
+async function getUserMessages(id) {
+    const query = `
+    SELECT title, date FROM messages
+        WHERE user_id = $1;
+    `;
+    const { rows } = await pool.query(query, [id]);
+    return rows;
+}
+
 async function makeUserAdmin(id) {
     const query = `
     UPDATE users 
@@ -55,4 +65,4 @@ async function makeUserAdmin(id) {
     await pool.query(query, [id]);
 }
 
-export { getUsers, newUser, getSelectedUser, getUserId, newMessage, getMessages, makeUserAdmin };
+export { getUsers, newUser, getSelectedUser, getUserId, newMessage, getMessages, makeUserAdmin, getUserMessages };
