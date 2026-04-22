@@ -7,8 +7,10 @@
                 <%  if (msg.id == user.id) { %>
                     <% msg.messages.map((m) => { %>
                         <li class="message">
-                            <h4 class="message-title-reduced"><%= m.title %></h4>
                             <form action="/admin" method="post">
+                                <h4 class="message-title-reduced"><%= m.title %></h4>
+                                <input type="hidden" name="id" value="<%= m.id %>">
+                            
                                 <button type="submit" class="button remove">X</button>
                             </form>
                         </li>

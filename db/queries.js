@@ -49,7 +49,7 @@ async function getMessages() {
 
 async function getUserMessages(id) {
     const query = `
-    SELECT title, date FROM messages
+    SELECT title, date, id FROM messages
         WHERE user_id = $1;
     `;
     const { rows } = await pool.query(query, [id]);
@@ -65,4 +65,13 @@ async function makeUserAdmin(id) {
     await pool.query(query, [id]);
 }
 
-export { getUsers, newUser, getSelectedUser, getUserId, newMessage, getMessages, makeUserAdmin, getUserMessages };
+async function deleteMessage(id) {
+    const query = `
+    DELETE FROM messages 
+        WHERE id = $1;
+    `;
+    const { rows } = await pool.query(query, [id]);
+    return rows;
+}
+
+export { getUsers, newUser, getSelectedUser, getUserId, newMessage, getMessages, makeUserAdmin, getUserMessages, deleteMessage };

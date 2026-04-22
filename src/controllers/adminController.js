@@ -23,5 +23,15 @@ async function getAdmin(req, res) {
             });
     }
 }
+async function postAdmin(req, res) {
+    if (!req.user) {
+        res.status(401).redirect("/");
+    } else if (!req.user.isadmin) {
+        res.status(401).redirect("/");
+    } else {
+        await db.deleteMessage(req.body.id);
+        res.redirect("/admin")
+    }
+}
 
-export { getAdmin };
+export { getAdmin, postAdmin };
