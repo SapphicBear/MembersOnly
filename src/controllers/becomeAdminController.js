@@ -14,18 +14,29 @@ async function getBecomeAdmin(req, res) {
                     links: links, 
                     title: titles.becomeAdmin,
                     user: req.user,
+                    errors: ""
                 });
         }
     }
 }
 async function postBecomeAdmin(req, res) {
+    const password = 123;
     if (!req.user) {
         res.status(401).redirect("/sign-in");
     } 
-    if (req.body.isadmin == "on") {
+    if (req.body.isadmin == "on" && req.body.password == password) {
         db.makeUserAdmin(req.user.id);
-    } 
-    res.redirect("/admin");
+        res.redirect("/admin");
+    } else {
+        res.status(401).render("become-admin", 
+            {
+                links: links,
+                title: titles.becomeAdmin,
+                user: req.user,
+                errors: { msg: "Password incorrect."},
+            });
+    }
+    
 }
 
 export { getBecomeAdmin, postBecomeAdmin };
