@@ -14,6 +14,13 @@
                 <button type="button" class="button" onclick="location.href = '/log-out'">Log out</button>
                 <button type="button" class="button" onclick="location.href='/new-message'">New Message</button>
             </div>
+            <% } else if (locals.user.isadmin == true ) { %>
+                    <h2>Welcome <%= user.username %>, logged in as Admin</h2>
+                    <div class="logarea">
+                        <button type="button" class="button" onclick="location.href = '/log-out'">Log out</button>
+                        <button type="button" class="button" onclick="location.href='/new-message'">New Message</button>
+                        <button type="button" onclick="location.href='/admin'">Admin Area</button>
+                    </div>
         <% } else { %>
             <h2>Please log in</h2>
             <div class="logarea">
