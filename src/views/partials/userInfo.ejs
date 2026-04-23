@@ -1,10 +1,17 @@
 <% users.map((user) => { %> 
     <section class="user" aria-labelledby="user-area">
-        <h4 id="user-area"><%= user.username %></h4>
-        <p>User id: <%= user.id %></p>
+        
+        <div class="user-information">
+            <h4 id="user-area"><%= user.username %></h4>
+            <p>User id: <%= user.id %></p>
+            
+        </div>
+        <hr>
+        <p>Messages:</p>
         <ul class="messages">
             <% messages.map((msg) => { %>
                 <%  if (msg.id == user.id) { %>
+                    
                     <% msg.messages.map((m) => { %>
                         <li class="message">
                             <form action="/admin" method="post">
