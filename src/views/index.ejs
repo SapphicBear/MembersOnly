@@ -31,6 +31,13 @@
         <% } %>
     </header>
     <main class="index">
+        <% if (messages.length == 0) { %>
+            <article class="message">
+                <p>No messages yet...</p>
+                <br>
+                <button class="button" type="button" onclick="location.href = '/new-message'">Create the first post!</button>
+            </article>
+            <% } %>
         <%- include("./partials/message.ejs", { messages: messages, user: user }); %>
     </main>
     <footer>
