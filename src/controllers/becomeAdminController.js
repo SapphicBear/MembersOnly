@@ -24,7 +24,7 @@ async function postBecomeAdmin(req, res) {
     if (!req.user) {
         res.status(401).redirect("/sign-in");
     } 
-    if (req.body.isadmin == "on" && req.body.password == password) {
+    if (req.body.isadmin == "on" && Number.parseInt(req.body.secret_password) == password) {
         db.makeUserAdmin(req.user.id);
         res.redirect("/admin");
     } else {

@@ -5,10 +5,10 @@
         </h3>
         <div class="message-info">
             <p class="username">
-                Created by: <%= user ? message.username : "Anonymous" %>
+                Created by: <%= user.ismember ? message.username : "Anonymous" %>
             </p>
             <p class="creation-date">
-                <%= user ? message.date : ""%>
+                <%= message.date %>
             </p>
         </div>
         <div class="message-body">

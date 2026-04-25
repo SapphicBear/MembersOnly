@@ -10,7 +10,7 @@ async function getUsers() {
 
 async function newUser(name, username, email, password, isadmin, ismember) {
     const query = `
-    INSERT INTO users (name, username, email, password, isadmin) VALUES ($1, $2, $3, $4, $5, $6);
+    INSERT INTO users (name, username, email, password, isadmin, ismember) VALUES ($1, $2, $3, $4, $5, $6);
     `;
     await pool.query(query, [name, username, email, password, isadmin, ismember]);
 }
