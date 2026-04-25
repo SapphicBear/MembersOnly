@@ -8,7 +8,9 @@
     "dev": "nodemon ./src/app.js",
     "start": "node ./src/app.js",
     "database": "dotenv -- npm run _database",
-    "_database": "node ./db/populatedb.js $DATABASE_URL"
+    "_database": "node ./db/populatedb.js $DATABASE_URL",
+    "_session": "psql $DATABASE_NAME < node_modules/connect-pg-simple/table.sql",
+    "session": "dotenv -- npm run _session"
   },
   "repository": {
     "type": "git",
