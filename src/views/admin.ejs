@@ -13,9 +13,11 @@
             </div>
         </header>
 
-        <main class="admin" aria-labelledby="main">
-            <h3 id="main">Welcome Admin Level user: <%= user.username %></h3>
-            <%- include("./partials/userInfo.ejs", { messages: messages, users: users }); %>
+        <main class="admin-main">
+            
+            <section class="user-message-area">
+                <%- include("./partials/userInfo.ejs", { messages: messages, users: users }); %>
+            </section>
         </main>
 
         <footer>
