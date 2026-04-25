@@ -16,6 +16,7 @@ const errors = {
     },
     match: {
         password: "Passwords must match each other.",
+        email: "Please provide an email using '@example.com'",
     }
 };
 
@@ -49,6 +50,12 @@ const signUp = [
         .withMessage(errors.length.email)
         .isEmail()
         .withMessage(errors.type.email)
+        .custom(async (value, { req }) => {
+            const re = /.+@example\.com$/;
+            if (!re.test(value)) {
+                throw new Error(errors.match.email)
+            }
+        })
         ,
     body("password")
         .notEmpty()

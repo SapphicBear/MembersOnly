@@ -42,7 +42,7 @@
             </div>
             <div class="form-row">
                 <label for="email">E-mail:</label>
-                <input type="email" name="email" id="email" />
+                <input type="email" name="email" id="email" placeholder="tay@example.com" title="Please provide only a example email address" required/>
                 <% if (locals.errors) { %>
                     <% errors.map((error) => { %>
                         <% if (error.path === "email") { %>
