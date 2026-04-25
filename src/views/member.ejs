@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("./partials/head.ejs", { title: title }); %>
+</head>
+<body>
+    <div class="wrapper member">
+        <header>
+            <h1>Secret Message</h1>
+            <h2>Become a member!</h2>
+            <button type="button" class="button" onclick="location.href='/'">Return home</button>
+        </header>
+
+        <main class="member">
+            <form action="/member" method="post" class="member-form">
+                <div class="form-row">
+                    <label for="member">Become a Member?</label>
+                    <input type="checkbox" name="member" id="member" />
+                </div>
+                <button class="button" type="submit">Submit</button>
+            </form>
+
+        </main>
+        <footer>
+            <%- include("./partials/footer", { links: links }); %>
+        </footer>
+    </div>
+</body>
+</html>

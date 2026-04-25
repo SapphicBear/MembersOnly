@@ -8,11 +8,11 @@ async function getUsers() {
     return rows;
 }
 
-async function newUser(name, username, email, password, isadmin) {
+async function newUser(name, username, email, password, isadmin, ismember) {
     const query = `
-    INSERT INTO users (name, username, email, password, isadmin) VALUES ($1, $2, $3, $4, $5);
+    INSERT INTO users (name, username, email, password, isadmin) VALUES ($1, $2, $3, $4, $5, $6);
     `;
-    await pool.query(query, [name, username, email, password, isadmin]);
+    await pool.query(query, [name, username, email, password, isadmin, ismember]);
 }
 async function getSelectedUser(username) {
     const query = `
@@ -73,5 +73,13 @@ async function deleteMessage(id) {
     const { rows } = await pool.query(query, [id]);
     return rows;
 }
+async function makeUserMember(id) {
+    const query = `
+    UPDATE users 
+        SET ismember = true
+        WHERE id = $1;
+    `;
+    await pool.query(query, [id]);
+}
 
-export { getUsers, newUser, getSelectedUser, getUserId, newMessage, getMessages, makeUserAdmin, getUserMessages, deleteMessage };
+export { getUsers, newUser, getSelectedUser, getUserId, newMessage, getMessages, makeUserAdmin, getUserMessages, deleteMessage, makeUserMember };

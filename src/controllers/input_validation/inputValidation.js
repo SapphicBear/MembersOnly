@@ -66,7 +66,8 @@ const signUp = [
                 throw new Error(errors.match.password);
             };
         }),
-    body("isadmin")
+    body("isadmin"),
+    body("ismember")
 ];
 
 const newMessage = [

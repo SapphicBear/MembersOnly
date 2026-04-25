@@ -45,8 +45,10 @@
                 if (!user || user.isadmin) {
                     return;
                 } else {
-                    if (randomNumber >= 16) {
+                    if (randomNumber >= 18) {
                         console.log("Hey... Do you wanna be an Admin? Go to the route 'become-admin'!");
+                    } else if (randomNumber >= 12 && !user.ismember) {
+                        console.log("Maybe try '/member' and become a member!");
                     } else {
                         console.log("hmm...");
                     }

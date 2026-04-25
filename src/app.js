@@ -13,6 +13,7 @@ import { logOutRouter } from "./routes/logoutRoute.js";
 import { newMessageRouter } from "./routes/newMessageRouter.js";
 import { becomeAdminRouter } from "./routes/becomeAdminRoute.js";
 import { adminRouter } from "./routes/adminRouter.js";
+import { memberRouter } from "./routes/memberRouter.js";
 import { passport } from "./passport/passport.js";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -45,6 +46,7 @@ app.use("/log-out", logOutRouter);
 app.use("/new-message", newMessageRouter);
 app.use("/become-admin", becomeAdminRouter);
 app.use("/admin", adminRouter);
+app.use("/member", memberRouter);
 
 app.use((error, req, res, next) => {
     console.error(error);
