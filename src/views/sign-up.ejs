@@ -20,7 +20,12 @@
         <form action="/sign-up" method="post" class="sign-up-form" novalidate>
             <div class="form-row">
                 <label for="first_name">First name:</label>
-                <input type="text" id="first_name" name="first_name" required />
+                <input 
+                    type="text" 
+                    id="first_name" 
+                    name="first_name" 
+                    value="<%= input ? input.first_name : ''%>"
+                    required />
                 <% if (locals.errors) { %>
                     <% errors.map((error) => { %>
                         <% if (error.path === "first_name") { %>
@@ -31,7 +36,12 @@
             </div>
             <div class="form-row">
                 <label for="last_name">Last Name:</label>
-                <input type="text" id="last_name" name="last_name" required />
+                <input 
+                    type="text" 
+                    id="last_name" 
+                    name="last_name" 
+                    value="<%= input ? input.last_name : ''%>"
+                    required />
                 <% if (locals.errors) { %>
                     <% errors.map((error) => { %>
                         <% if (error.path === "last_name") { %>
@@ -42,7 +52,14 @@
             </div>
             <div class="form-row">
                 <label for="email">E-mail:</label>
-                <input type="email" name="email" id="email" placeholder="tay@example.com" title="Please provide only a example email address" required/>
+                <input 
+                    type="email" 
+                    name="email" 
+                    id="email" 
+                    placeholder="tay@example.com" 
+                    title="Please provide only a example email address" 
+                    value="<%= input ? input.email : ''%>"
+                    required/>
                 <% if (locals.errors) { %>
                     <% errors.map((error) => { %>
                         <% if (error.path === "email") { %>
@@ -53,7 +70,12 @@
             </div>
             <div class="form-row">
                 <label for="username">Username:</label>
-                <input type="text" id="username" name="username" />
+                <input 
+                    type="text" 
+                    id="username" 
+                    name="username"
+                    value="<%= input ? input.username : ''%>"
+                    required />
                 <% if (locals.errors) { %>
                     <% errors.map((error) => { %>
                         <% if (error.path === "username") { %>
