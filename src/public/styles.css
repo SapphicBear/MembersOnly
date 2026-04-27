@@ -528,3 +528,25 @@ textarea {
         opacity: 1;
     }
 }
+
+@media (max-width: 640px) {
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    main.index {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        max-width: 600px;
+        margin: 0;
+        outline: 2px solid red;
+    }
+    article {
+        width: fit-content;
+    }
+    header, footer, main {
+        outline: red solid 2px;
+    }
+}
