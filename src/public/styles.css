@@ -554,6 +554,24 @@ textarea {
         max-width: 600px;
         margin: 1rem ;
     }
+    main.sign-up {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        > h2 {
+            transform: translateY(25px);
+        }
+        > .sign-up-form {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            > .form-row {
+                display: flex;
+                align-items: center;
+            }
+        }
+    }
     article {
         width: 100%;
     }
