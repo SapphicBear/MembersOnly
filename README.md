@@ -8,6 +8,11 @@ Made as a part of the [Odin Project's Node backend programming course!](https://
 
 ## Technologies
 
+- Passportjs
+- Express.js
+- EJS
+- PostgreSQL
+
 This project is using passportjs for user authentication, express-session for user-sessions and user information is saved on a Postgresql server!
 
 This app was created using express.js and EJS!
