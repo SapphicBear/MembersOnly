@@ -75,6 +75,7 @@ const newMessage = [
     .notEmpty()
     .withMessage(errors.length.title)
     .trim()
+    .whitelist("'")
     .escape()
     ,
     body("body")
@@ -83,6 +84,7 @@ const newMessage = [
     .isLength({ min: 1, max: 255 })
     .withMessage(errors.length.bodyMax)
     .trim()
+    .whitelist("'")
     .escape()
     ,
 ];
